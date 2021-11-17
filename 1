@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<math.h>
+
+int main () {
+    int n;
+    scanf("%d",&n);
+    
+    int s;
+    unsigned long int k;
+    k=0;
+    
+    for(int i=1;i<=n;n++){
+        scanf("%d",&s);
+        switch(s){
+            case 6:{      //六進制
+                scanf("%lu",&k); 
+                int i=0;
+                int kk=0;
+                while (k>=1){   
+                    kk+=k%10*pow(6,i);
+                    k/=10;
+                    i++;
+                }
+                k=kk;
+                break;
+            }
+            case 8:{  //八進制
+                scanf("%lo",&k);
+                break;
+            }
+            case 10:{  //十進制
+                scanf("%lu",&k);
+                break;
+            }
+            case 16:{  //十六進制
+                scanf("%lx",&k);
+                break;
+            }
+        }
+        k+=k%1000000007;
+    }
+    
+    printf("%lu",k%1000000007);
+    return 0;
+}
